@@ -3,6 +3,7 @@
 // Project #3
 
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -115,7 +116,7 @@ class Nomenclator
             number += 1;
             try
             {
-                line = reader.readLine();
+                line = BoundedLineReader.readLine(reader, 5_000_000);
                 if (line == null)
                 {
                     line = "" + eof;
